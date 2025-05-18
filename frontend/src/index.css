@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 20% 98%;
+    --foreground: 270 5% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 5% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 5% 10%;
+
+    --primary: 260 84% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 30% 95%;
+    --secondary-foreground: 260 50% 50%;
+
+    --muted: 270 10% 94%;
+    --muted-foreground: 270 5% 40%;
+
+    --accent: 230 70% 95%;
+    --accent-foreground: 230 60% 40%;
+
+    --marketing: 280 75% 60%;
+    --marketing-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 10% 90%;
+    --input: 270 10% 90%;
+    --ring: 260 84% 62%;
+
+    --nextlevel-50: 260 100% 97%;
+    --nextlevel-100: 260 100% 94%;
+    --nextlevel-200: 260 95% 90%;
+    --nextlevel-300: 260 95% 80%;
+    --nextlevel-400: 260 90% 75%;
+    --nextlevel-500: 260 84% 67%;
+    --nextlevel-600: 260 84% 62%;
+    --nextlevel-700: 260 70% 55%;
+    --nextlevel-800: 260 60% 45%;
+    --nextlevel-900: 260 60% 35%;
+    --nextlevel-950: 260 65% 20%;
+
+    --radius: 0.6rem;
+  }
+
+  .dark {
+    --background: 260 20% 8%;
+    --foreground: 270 10% 98%;
+
+    --card: 260 15% 12%;
+    --card-foreground: 270 10% 98%;
+
+    --popover: 260 15% 12%;
+    --popover-foreground: 270 10% 98%;
+
+    --primary: 260 84% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 30% 20%;
+    --secondary-foreground: 260 70% 85%;
+
+    --muted: 260 15% 18%;
+    --muted-foreground: 260 10% 75%;
+
+    --accent: 230 40% 20%;
+    --accent-foreground: 230 70% 85%;
+
+    --marketing: 280 70% 55%;
+    --marketing-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 260 84% 70%;
+
+    --nextlevel-50: 260 20% 90%;
+    --nextlevel-100: 260 25% 85%;
+    --nextlevel-200: 260 30% 75%;
+    --nextlevel-300: 260 40% 65%;
+    --nextlevel-400: 260 50% 60%;
+    --nextlevel-500: 260 60% 55%;
+    --nextlevel-600: 260 70% 50%;
+    --nextlevel-700: 260 75% 40%;
+    --nextlevel-800: 260 70% 30%;
+    --nextlevel-900: 260 65% 20%;
+    --nextlevel-950: 260 65% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* 글꼴 정의 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom Layer Components */
+@layer components {
+  .nxt-gradient-text {
+    @apply bg-gradient-to-r from-nextlevel-600 to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  .nxt-gradient-bg {
+    @apply bg-gradient-to-r from-nextlevel-600 to-purple-500;
+  }
+  
+  .nxt-card {
+    @apply bg-card rounded-xl border border-border/40 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .nxt-card-glow {
+    @apply bg-card rounded-xl border border-nextlevel-200 dark:border-nextlevel-900 shadow-sm hover:shadow-glow transition-all duration-300;
+  }
+}
